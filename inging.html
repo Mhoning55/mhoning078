@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nattharinee Im-aoeb with Stars</title>
+    <style>
+        /* การตั้งค่าพื้นหลัง */
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://th.bing.com/th/id/R.0f2ca0667c88db6d2e232c9860da830a?rik=QmLKDLCe56AUBQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f10%2fBlack-Galaxy-Wallpapers-HD-Desktop.png&ehk=n7d9K1itozWYA53dR58xa0dDEE06LCdtg0makgJHYMI%3d&risl=&pid=ImgRaw&r=0');
+            background-size: cover; /* ทำให้ภาพขยายครอบคลุมหน้าจอ */
+            background-position: center; /* จัดตำแหน่งภาพให้ตรงกลาง */
+            background-repeat: no-repeat; /* ห้ามทำการซ้ำของภาพพื้นหลัง */
+            height: 100vh; /* ให้พื้นหลังครอบคลุมทั้งความสูงของหน้าจอ */
+            font-family: Arial, sans-serif; /* ตั้งค่า font ของข้อความ */
+            position: relative;
+            overflow: hidden; /* ซ่อนดาวที่เคลื่อนที่ออกจากหน้าจอ */
+        }
+
+        /* เพิ่มเอฟเฟกต์ดาวที่เคลื่อนไหว */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* ไม่ให้ดาวมีปฏิสัมพันธ์กับผู้ใช้ */
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            border-radius: 50%;
+            background-color: white;
+            opacity: 0.8;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        /* การทำให้ดาวกระพริบ */
+        @keyframes twinkle {
+            0% {
+                opacity: 0.8;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0.3;
+                transform: scale(0.8);
+            }
+        }
+
+        /* สไตล์สำหรับพื้นที่ข้อความ */
+        .content {
+            background-color: rgba(0, 0, 0, 0.6); /* สีดำที่มีความโปร่งใส */
+            padding: 30px; /* เพิ่มช่องว่างรอบข้อความ */
+            border-radius: 10px; /* มุมโค้ง */
+            display: inline-block; /* ให้ข้อความอยู่ในบล็อกเดียว */
+            text-align: center; /* จัดตำแหน่งข้อความให้อยู่กลาง */
+            color: white; /* กำหนดให้ข้อความเป็นสีขาว */
+            font-size: 24px; /* ขนาดตัวอักษร */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* เพิ่มเงาให้กับข้อความ */
+            position: relative;
+            z-index: 2; /* ทำให้ข้อความอยู่เหนือดาว */
+        }
+
+        /* สไตล์ของหัวข้อ h1 */
+        h1 {
+            font-size: 36px; /* ขนาดตัวอักษรของชื่อ */
+            margin: 0;
+        }
+
+        /* สไตล์ของย่อหน้า p */
+        p {
+            font-size: 24px; /* ขนาดตัวอักษรของเลขประจำตัว */
+            margin-top: 10px; /* ระยะห่างระหว่างชื่อกับเลขประจำตัว */
+        }
+    </style>
+</head>
+<body>
+
+<!-- พื้นที่สำหรับข้อความ -->
+<div class="content">
+    <h1>Nattharinee Im-aoeb</h1>
+    <p>67130500078</p>
+</div>
+
+<!-- ดาวที่เคลื่อนไหว -->
+<div class="stars">
+    <div class="star" style="top: 10%; left: 15%; width: 3px; height: 3px;"></div>
+    <div class="star" style="top: 20%; left: 30%; width: 2px; height: 2px;"></div>
+    <div class="star" style="top: 50%; left: 40%; width: 4px; height: 4px;"></div>
+    <div class="star" style="top: 60%; left: 50%; width: 2px; height: 2px;"></div>
+    <div class="star" style="top: 80%; left: 70%; width: 3px; height: 3px;"></div>
+    <div class="star" style="top: 30%; left: 80%; width: 2px; height: 2px;"></div>
+    <!-- เพิ่มดาวเพิ่มได้ตามต้องการ -->
+</div>
+
+<script>
+    // JavaScript เพื่อเพิ่มดาวให้เคลื่อนไหว
+    function createStar() {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.width = `${Math.random() * 3 + 2}px`; // ขนาดดาว
+        star.style.height = star.style.width;
+        star.style.top = `${Math.random() * 100}%`; // ตำแหน่งแนวตั้ง
+        star.style.left = `${Math.random() * 100}%`; // ตำแหน่งแนวนอน
+        document.querySelector('.stars').appendChild(star);
+    }
+
+    // สร้างดาวทุกๆ 100ms
+    setInterval(createStar, 100);
+</script>
+
+</body>
+</html>
+
